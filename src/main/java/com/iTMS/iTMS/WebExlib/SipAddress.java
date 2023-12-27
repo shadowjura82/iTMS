@@ -1,4 +1,4 @@
-package com.ciscospark;
+package com.iTMS.iTMS.WebExlib;
 
 public class SipAddress {
     private String type;
