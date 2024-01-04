@@ -1,36 +1,36 @@
 package com.iTMS.iTMS.services;
 
-import com.iTMS.iTMS.WebExlib.*;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Value;
+import com.iTMS.iTMS.repositories.OracleTaskRepository;
+import myDB.models.PostgreSQLTask;
+import myDB.repositories.PostgreSQLTaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import java.net.MalformedURLException;
-import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TstService {
-    @Value("${MY_DEVELOPER_TOKEN}")
-    private String token;
+    @Autowired
+    private OracleTaskRepository oracleTaskRepository;
+//    @Autowired
+//    private PostgreSQLTaskRepository postgreSQLTaskRepository;
 
-    @PostConstruct
-    private void init() throws MalformedURLException {
-        Spark spark = Spark.builder()
-                .baseUrl(URI.create("https://webexapis.com/v1"))
-                .accessToken(token)
-                .build();
-
-//        Person person = new Person();
-//        person = spark
-//                .people()
-//                .queryParam()
-//                .get();
-//        System.out.println(person.toString());
-
-//        spark.webhooks().
+    public List<String> getTasks() {
+        return oracleTaskRepository.getTasksAssignedToSupport();
     }
 
-    public String getToken() {
-        return token;
-    }
+//    public String transferAllTasks() {
+//        List<PostgreSQLTask> list = getTasks().stream()
+//                .map(e -> {
+//                    String[] task = e.split("-");
+//                    return new PostgreSQLTask(task[0], task[1]);
+//                }).toList();
+//        if (!postgreSQLTaskRepository.saveAll(list).isEmpty()) {
+//            return "<h1>Операция завершилась успешно!</h1>";
+//        } else {
+//            return "<h1>Что-то пошло не так!</h1>";
+//        }
+//    }
 }
