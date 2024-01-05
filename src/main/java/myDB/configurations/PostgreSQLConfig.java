@@ -31,9 +31,9 @@ public class PostgreSQLConfig {
         em.setPackagesToScan(new String[]{"myDB.model"});  // указываем пакет где находится Entity
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter()); // подключаем hibernate
         HashMap<String, Object> properties = new HashMap<>();      //задаем свойства hibernate больше инфо тут https://javarush.com/quests/lectures/questhibernate.level09.lecture04
-        properties.put("hibernate.hbm2ddl.auto", env.getProperty("secondary.spring.jpa.hibernate.ddl-auto"));
-        properties.put("hibernate.show_sql", env.getProperty("secondary.spring.jpa.hibernate.show-sql"));
-        properties.put("hibernate.format_sql", env.getProperty("secondary.spring.jpa.hibernate.format_sql"));
+        properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
+        properties.put("hibernate.show_sql", env.getProperty("spring.jpa.hibernate.show-sql"));
+        properties.put("hibernate.format_sql", env.getProperty("spring.jpa.hibernate.format_sql"));
         properties.put("hibernate.dialect", env.getProperty("secondary.spring.jpa.hibernate.dialect"));
         em.setJpaPropertyMap(properties);
         return em;
