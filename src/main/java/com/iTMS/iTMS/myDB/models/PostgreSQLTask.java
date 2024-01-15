@@ -1,4 +1,4 @@
-package myDB.models;
+package com.iTMS.iTMS.myDB.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,6 +14,9 @@ public class PostgreSQLTask {
     private String client;
     @Column(name = "ID")
     private String clientId;
+
+    public PostgreSQLTask() {
+    }
 
     public PostgreSQLTask(String client, String clientId) {
         this.client = client;

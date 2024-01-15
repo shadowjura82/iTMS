@@ -3,7 +3,7 @@ package com.iTMS.iTMS;
 import com.iTMS.iTMS.models.OracleTask;
 import com.iTMS.iTMS.repositories.OracleTaskRepository;
 
-import myDB.repositories.PostgreSQLTaskRepository;
+import com.iTMS.iTMS.myDB.repositories.PostgreSQLTaskRepository;
 import org.junit.jupiter.api.Test;
 
 import org.junit.runner.RunWith;

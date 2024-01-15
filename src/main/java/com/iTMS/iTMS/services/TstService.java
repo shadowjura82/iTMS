@@ -1,8 +1,8 @@
 package com.iTMS.iTMS.services;
 
 import com.iTMS.iTMS.repositories.OracleTaskRepository;
-import myDB.models.PostgreSQLTask;
-import myDB.repositories.PostgreSQLTaskRepository;
+import com.iTMS.iTMS.myDB.models.PostgreSQLTask;
+import com.iTMS.iTMS.myDB.repositories.PostgreSQLTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

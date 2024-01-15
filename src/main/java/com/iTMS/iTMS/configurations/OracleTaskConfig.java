@@ -1,10 +1,6 @@
 package com.iTMS.iTMS.configurations;
 
-import jakarta.persistence.PersistenceContext;
-import myDB.models.PostgreSQLTask;
-import myDB.repositories.PostgreSQLTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -16,7 +12,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
-import java.util.Objects;
 
 @Configuration
 @PropertySource({"classpath:application.properties"})
