@@ -29,7 +29,7 @@ public class OracleTaskConfig {
     public LocalContainerEntityManagerFactoryBean oracleTaskEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(oracleTaskDataSource());   // подключаем DataSource
-        em.setPackagesToScan(new String[]{"com.iTMS.iTMS.models", "com.iTMS.iTMS.repositories"});  // указываем пакет где находится Entity
+        em.setPackagesToScan(new String[]{"com.iTMS.iTMS.models"});  // указываем пакет где находится Entity
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter()); // подключаем hibernate
         HashMap<String, Object> properties = new HashMap<>();      //задаем свойства hibernate больше инфо тут https://javarush.com/quests/lectures/questhibernate.level09.lecture04
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
