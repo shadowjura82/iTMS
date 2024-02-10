@@ -17,13 +17,20 @@ public class PLDtasks {
     private boolean ifTaskIsProcessedBySupport;
     @Column(name = "pld_proc")
     private boolean ifTaskIsProcessedByPLD;
+    @Column(name = "status")
+    private String status;
 
-    public PLDtasks(String task, boolean ifTaskIsProcessedBySupport, boolean ifTaskIsProcessedByPLD) {
+    public PLDtasks(String task, boolean ifTaskIsProcessedBySupport, boolean ifTaskIsProcessedByPLD, String status) {
         this.task = task;
         this.ifTaskIsProcessedBySupport = ifTaskIsProcessedBySupport;
         this.ifTaskIsProcessedByPLD = ifTaskIsProcessedByPLD;
+        this.status = status;
     }
 
     public PLDtasks() {
+    }
+
+    public String taskToString() {
+        return "\n" + task;
     }
 }

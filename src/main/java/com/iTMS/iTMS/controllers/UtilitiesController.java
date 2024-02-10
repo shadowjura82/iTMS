@@ -17,7 +17,7 @@ public class UtilitiesController {
     @Autowired
     private CheckPLDtimeSpend checkPLDtimeSpend;
 
-    @GetMapping("/check_pld_time_spend")
+    @PostMapping("/check_pld_time_spend")
     @Operation(summary = "Среднее арифметическое время потраченое командой PLD на обработку задач",
             description = "Этот ендпоинт позволяет сравнить время потраченное на рефение задач без помощи и с помощью сапорта<br>" +
                     "Параметры:<br>" +
@@ -27,7 +27,7 @@ public class UtilitiesController {
     public ResponseEntity<String> getTasks(@RequestParam(defaultValue = "2024-01-01 00:00:00") String dateFrom,
                                            @RequestParam(defaultValue = "2025-01-01 23:59:00") String dateTo,
                                            @RequestParam(required = false, defaultValue = "C") String status,
-                                           @RequestBody TaskId taskId) {
+                                           @RequestBody List<TaskId> taskId) {
         return ResponseEntity.ok(checkPLDtimeSpend.getComparison(dateFrom, dateTo, status, taskId));
     }
 }

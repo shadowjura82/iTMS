@@ -8,4 +8,6 @@ public interface PLDtasksMonitoringService {
     List<PLDtasks> setAllTasks(List<String> list);
 
     List<PLDtasks> markSolvedTasks(List<String> list, boolean isSupport);
+
+    String updateTaskStatus(List<String> list);
 }

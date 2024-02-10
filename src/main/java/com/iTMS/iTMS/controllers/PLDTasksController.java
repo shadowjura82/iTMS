@@ -6,10 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -57,5 +54,18 @@ public class PLDTasksController {
                     "<b>]</b>")
     private ResponseEntity<List<PLDtasks>> markPLDSolvedTasks(@RequestBody List<String> list) {
         return ResponseEntity.ok(service.markSolvedTasks(list, false));
+    }
+
+    @PostMapping("/update_status")
+    @Operation(summary = "Обновить статусы для всех тасок",
+            description = "Этот эндпоинт считывает все таски с локальной базы и обновляет для них статусы с iTMS базы" +
+                    "Список должен быть предоставлен в виде массива JSON стрингов. Пример:<br>" +
+                    "<b>[</b>" +
+                    "<b>  \"FCS-07118\",</b>" +
+                    "<b>  \"MTSIN-19135\",</b>" +
+                    "<b>  \"ARCMR-02080\"</b>" +
+                    "<b>]</b>")
+    public String updateTaskStatus(@RequestBody List<String> list) {
+        return service.updateTaskStatus(list);
     }
 }

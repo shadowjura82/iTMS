@@ -1,6 +1,5 @@
 package com.iTMS.iTMS.controllers;
 
-import com.iTMS.iTMS.dto.TaskId;
 import com.iTMS.iTMS.services.impl.GeneralOperationsServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,7 +24,7 @@ public class GeneralController {
                     "<b>dateFrom</b> - Начальная дата в формате YYYY-MM-DD HH24:MI:SS<br>" +
                     "<b>dateTo</b> - Окончательная дата в формате YYYY-MM-DD HH24:MI:SS<br>" +
                     "<b>status</b> - Статус тасок. По умолчанию параметр равен С (закрытые таски)")
-    public ResponseEntity<List<TaskId>> getTasks(@RequestParam(defaultValue = "N/GENESPL") String bin,
+    public ResponseEntity<List<String>> getTasks(@RequestParam(defaultValue = "N/GENESPL") String bin,
                                                  @RequestParam(defaultValue = "2024-01-01 00:00:00") String dateFrom,
                                                  @RequestParam(defaultValue = "2025-01-01 23:59:00") String dateTo,
                                                  @RequestParam(required = false, defaultValue = "C") String status) {
