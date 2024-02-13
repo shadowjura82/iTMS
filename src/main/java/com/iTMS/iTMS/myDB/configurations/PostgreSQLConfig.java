@@ -1,4 +1,4 @@
-package myDB.configurations;
+package com.iTMS.iTMS.myDB.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 @Configuration
 @PropertySource({"classpath:application.properties"})
 @EnableJpaRepositories(
-        basePackages = "myDB.repositories",
+        basePackages = "com.iTMS.iTMS.myDB.repositories",
         entityManagerFactoryRef = "postgreSQLEntityManager",
         transactionManagerRef = "postgreSQLTaskTransactionManager"
 )
@@ -28,7 +28,7 @@ public class PostgreSQLConfig {
     public LocalContainerEntityManagerFactoryBean postgreSQLEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(postgreSQLTaskDataSource());   // подключаем DataSource
-        em.setPackagesToScan(new String[]{"myDB.model"});  // указываем пакет где находится Entity
+        em.setPackagesToScan(new String[]{"com.iTMS.iTMS.myDB.models"});  // указываем пакет где находится Entity
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter()); // подключаем hibernate
         HashMap<String, Object> properties = new HashMap<>();      //задаем свойства hibernate больше инфо тут https://javarush.com/quests/lectures/questhibernate.level09.lecture04
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
